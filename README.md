@@ -9,31 +9,27 @@ NB: To Play and test the Game successfully, make sure to **be on the full screen
 
 ### chel007 X Stackup Space Invaders Game WriteUp
 
-Welcome to my Advanced Update of the StackupInvaders Game Project Integradted with the Immutable SDK Platform.
+Welcome to my advanced update of the StackupInvaders Game Project, integrated with the Immutable SDK Platform.
 
-This short writeup works through the new features of the Game and their Functionality.
+This brief overview highlights the new features of the game and explains how they function.
 
-So when I first say this Game and Started to Digest it to understand the Code Logic, it seemed difficult to me, I was tempted to revise the whole Game into one powered by React since it could be easier to create the Logic with that, or Would it really?
+Initially, when I encountered this game and delved into understanding its code logic, it seemed challenging. I was tempted to rebuild the entire game using React, thinking it might make the logic creation easier. However, I eventually opted to stick with the existing code because the main functions provided in the original Invaders game were too crucial to overlook. This decision saved me a considerable amount of time, especially with the following features:
 
-Well, I eventually decided to go along with this because the Main Functions provided in the Initial Invaders game were too much to Overlook and it saved me a lot of time not having to re-implement them, Especially the foll features:
+1. Passport Login and the game start logic after successful authentication.
+2. The major classes triggered at game start in the Draw function (Invaders and Player).
+3. The NFT logic for claiming NFTs and showcasing the UI on the right side of the screen.
+4. The initialization logic of referenced classes from another JS file. It became clear how this worked, allowing me to access cross-file values seamlessly.
 
-* Passport Login and the Game Start Logic after Successful Authentication
-* The Major Classes triggered at game Start in the Draw Function (Invaders n Player)
-* The NFT Logic of Claiming NFTs and Showcasing the UI of the right side of the Screen
-* The Initializing Logic of references Classes from another Js File, it later became apparent to me how this worked and I could access as much cross-file Values as i wanted.
-
-So in short, this Game files upon close study became simple and I decided to just build on it which was soo fun!.
+In conclusion, after a closer study, the game files turned out to be straightforward, and I found it quite fun to build upon the existing codebase.
 
 ### New Features Implemented into the Invaders Game
 
 #### Level Progression
-The First thing I wanted to do was to ensure that Players comfortably progressed through Levels with Customised Property which would give breath to Understand the game and Enjoy it's features. 
+The first thing I wanted to do was to ensure that players could smoothly progress through levels with customized properties, providing an opportunity to understand and enjoy the game's features. To achieve this, I added a simple constant array in the `Invaders.js` file that holds level properties (`level` and `playerLevels`). These properties are looped through during the initialization of the aliens and to update the player's speed, bullet speed, and max bullet count.
 
-So I added const variables in the Invaders.js document that would hold the Level properties (level & playerLevels), which are being Looped through when Initialising the Aliens and to Update the player Speed, Bullet Speed and Max Bullet Count properties. 
+This addition brings a more dynamic feel to the game, as players compete against aliens with varying strengths at each level, while also benefiting from improved player perks.
 
-This introduced a more dynamic feel to the Game because you are Competition against different strength of Aliens each Level (using improving Player perks too).
-
-NB: During Level Progressing, I amped the health property for Aliens to make them require multiple contact shots to be Eliminated, this was very cool because Higher Levels could contain smaller Number of Aliens but with Extra health.
+Note: As players progress through levels, I increased the health property for aliens, requiring multiple shots for elimination. This enhancement added an exciting element to the game, as higher levels could feature a smaller number of aliens, but each with extra health.
 
 The Methods Powering the Level Progression Features includes:
 `in Invaders.js`
@@ -45,14 +41,13 @@ The Methods Powering the Level Progression Features includes:
 
 `in Player.js`
 * updateSpeed, updateBulletSpeed, updateBulletCount (which is called from Invaders.js)
-* shoot upgraded to utilize bulletSpeed and maxBulletCount resp
+* shoot() method upgraded to utilize bulletSpeed and maxBulletCount resp
 
 
 #### **Persistent Player Data**, In-game Currency and Scoring
-This was a feature that set the groundwork for the integration of Powerups. So I added a simple Coins Earninsg through Levels that is accumulated based on the Score player receives in a Level. 
-The socring is further calculated using a Simple comboMultiplier so that precise shooters earn more coins.
-How does it work?: so the ComboMultiplier checks for alien hits within the last 3 seconds and increases the combo score so that continuously hitting aliens gives a very high score. 
-The Coins is obtained from the Score with a Simple Division and it's finally stored in the localStorage, so that even if the game ends the player doesn't lose it (bcos they'll need to buy powerups).
+This feature laid the foundation for integrating power-ups into the game. I introduced a simple coins earnings system through levels, accumulating based on the player's score in each level. The scoring mechanism is further enhanced with a combo multiplier, rewarding precise shooters with more coins.
+
+Here's how it works: The combo multiplier tracks alien hits within the last 3 seconds, increasing the combo score. Continuously hitting aliens leads to a higher score. The coins are obtained from the score through a simple division, and the final amount is stored in the localStorage. This ensures that even if the game ends, the player retains their coins, which are needed for purchasing power-ups.
 The Methods powering this feature includes:
 `in Player.js`
 * updateScore
@@ -62,8 +57,7 @@ The Methods powering this feature includes:
 * savePlayerData & loadPlayerData ( which is used to store n retrieve the coins value, n could be extended for other data)
 
 #### **Powerups**
-So I really wanted to test out this feature as it was suggested in the Bounty, and I thought it would be extremely fun to have.
-So I decided to create three different kinds of Powerup, 
+I was eager to test out this feature, especially since it was suggested in the bounty, and I thought it would add a lot of fun to the game. To implement this, I created three different kinds of power-ups.
 
 `one - Alienblaster` to bump the Player's perks according to the level they're on, giving them the ability to shoot faster, and kill more aliens easily. It runs for 10 seconds. This Powerup increases players `bulletSpeed` and `maxBulletCount` than the default level
 
