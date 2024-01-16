@@ -2,3 +2,17 @@ body, html {
     max-height: 100vh;
     overflow: hidden; /* This will prevent scrolling */
   }
+
+  .good-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .good-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
