@@ -158,6 +158,24 @@ function connectToStart() {
   text(startText2, textXpos2, textYpos + 20);
 }
 
+// function checkAndDeleteLocalCooldown() {
+//   const localCooldownData = localStorage.getItem('localCooldowns');
+
+//   if (localCooldownData) {
+//     // If localCooldown exists, delete it
+//     localStorage.removeItem('localCooldowns');
+//     console.log('localCooldown deleted from localStorage');
+//   }
+// }
+
+// Attach the function to the onload event
+// window.onload = function () {
+//   // Call the checkAndDeleteLocalCooldown function on page load
+//   checkAndDeleteLocalCooldown();
+
+//   // Rest of your onload logic...
+// };
+
 function resumeGame() {
   console.log('Resuming game, hiding resume button');
   player.gamePaused = false;

@@ -418,7 +418,8 @@ function getImageUrlForId(id) {
             }, 1000);
             return true;
         } catch (error) {
-           alert('Error minting Powerup NFT, Try Again:', error);
+           console.log('Error minting Powerup NFT, Try Again:', error);
+           return false;
         }
     } else {
         console.log("No provider found.");
