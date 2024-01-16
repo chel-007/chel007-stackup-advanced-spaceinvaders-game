@@ -1,6 +1,6 @@
 ## Game Details
 
-The Deployed Game Link is @: 
+The Deployed Game Link is @: https://chel-advanced-spaceinvaders.netlify.app
 
 NB: To Play and test the Game successfully, make sure to **be on the full screen of your PC**, **allow pop-up notifications for the tab**, and **have some t-IMX in your logged in wallet**
 
