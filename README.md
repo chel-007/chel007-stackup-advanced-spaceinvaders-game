@@ -130,9 +130,9 @@ The response is compared using NFT names rather than token IDs (since these IDs 
 
 I deployed a new NFT Collection specifically for the advanced powerup, the "Alienator," via Immutable Hub. This collection comprises only one NFT token, representing the unique Alienator powerup in the game.
 
-### Collection Link:
+### New NFT Powerup Collection Link:
 
-https://hub.immutable.com/projects/11446236-6349-42b7-bbae-57855458d9c7/3ef83fc0-b8a2-4838-baff-d626002699a1/collections/0xcc21556b1b08e76bdbfbd5220c24c12723d0e540
+https://explorer.testnet.immutable.com/address/0x646dc499a9c56c755ebc4e9b0f6580896cc9c3ce
 
 
 ![powerup collection chel007](https://magenta-golden-kangaroo-945.mypinata.cloud/ipfs/QmcMeGhGVJ6tCfVyyee8MWnFjCicbbpteasnHAJqCc7fqX)
