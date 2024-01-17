@@ -6,7 +6,7 @@ NB: To Play and test the Game successfully, make sure to **be on the full screen
 
 ## GamePlay Guide
 
-<div style="position:relative; width:100%; height:0px; padding-bottom:56.206%"><iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/iigb9b?" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+[<img src="https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg" width="50%">](https://vimeo.com/903867901?share=copy "chel007 X Stackup Space Invaders: 55")
 
 <hr>
 
