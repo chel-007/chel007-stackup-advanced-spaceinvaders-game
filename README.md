@@ -6,7 +6,28 @@ NB: To Play and test the Game successfully, make sure to **be on the full screen
 
 ## GamePlay Guide
 
-[<img width="50%">](https://vimeo.com/903867901?share=copy "chel007 X Stackup Space Invaders: 55")
+[<img src="" width="50%">](https://vimeo.com/903867901?share=copy "chel007 X Stackup Space Invaders: 55")
+
+**The gameplay guide video above will redirect to a Vimeo video on click.**
+
+### Contents
+* I Visit https://chel-advanced-spaceinvaders.netlify.app/ to load the game. Upon loading, the player is moved to Level 6. Since I've previously minted the Level 5 NFT Checkpoint, there's no need to replay Level 5, and the game restarts from Level 6.
+  - Note: I refreshed the initial Level 3 minted NFT with Level 5 details using `refreshNFTMetadata`.
+
+* Next, I intentionally lose the game to demonstrate restarting and the game's playability.
+  - Note: The checkpoint initializes only when the window is reloaded, not when maintaining the current state after a game loss.
+
+* I Start from Level 1 now, complete it, then purchase the Alienblaster Powerup and activate it. Clicking the resume button shows my player perks boosted with more speed and bullet counts, helping me kill aliens faster, but it only lasts for 10 seconds.
+  - Note: My coins are plenty since they were saved in local storage during initial game testing. New players start with just 100 coins.
+
+* After completing Level 2, I also purchase the Alienshock Powerup. It helps shock many aliens in the level, leaving only a few.
+
+* By Timeline 3.52, after playing a few times and completing Level 3, I quickly demonstrate the NFT minting process and successfully mint the Level 3 Badge again.
+  - Note: This step is unnecessary for players who have minted before, but it doesn't affect the level checkpoint, as the highest level NFT badge will be considered.
+
+* I then mint the Alienator Powerup NFT and activate it too, entering a cooldown. Upon resuming, the NFT spawns new upgraded spaceships, aiding in killing more aliens. I Get distracted by their shooting and lose.
+
+* I Reload the game finally to showcase the level checkpoint, which beeps me back to Level 6. I Complete the level and take a look at the Activate Powerup Screen; the Alienator Powerup is still on cooldown, which would last  for 10 minutes.
 
 <hr>
 
