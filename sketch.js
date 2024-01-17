@@ -349,6 +349,15 @@ function displayPowerupsUI() {
             }
         } else {
           cooldowns = JSON.parse(localStorage.getItem('localCooldowns')) || {};
+
+          if (localStorage.getItem('localCooldowns') && !player.ownsPowerup(powerup.name)) {
+            // Delete the current localCooldowns data
+            localStorage.removeItem('localCooldowns');
+    
+            // Show the Buy NFT Powerup button
+            powerupButton.textContent = 'Buy NFT Powerup';
+            powerupButton.addEventListener('click', () => handleBuyNFTClick(powerup));
+          } else {
           // Handle PowerupNFT differently based on its activation and cooldown
           const cooldownInfo = cooldowns[powerup.name];
           console.log(cooldownInfo)
@@ -402,6 +411,7 @@ function displayPowerupsUI() {
             powerupButton.addEventListener('click', () => handleBuyNFTClick(powerup));
           }
         }
+      }
         
         powerupContainer.appendChild(powerupButton);
 

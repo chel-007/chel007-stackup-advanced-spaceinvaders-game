@@ -36,12 +36,21 @@ const passportLogout = async function(){
     window.userProfile = {};
 }
 // Insert Contract Address
-const CONTRACT_ADDRESS = '0x9d2498974e6337292e0dc239502f6aa310954c1a';
-const CONTRACT_ADDRESS2 = '0xcc21556b1b08e76bdbfbd5220c24c12723d0e540';
+const CONTRACT_ADDRESS = '0x56fed7cf95c6bbbf114e2caf5201d283b8242174';
+const CONTRACT_ADDRESS2 = '0x646dc499a9c56c755ebc4e9b0f6580896cc9c3ce';
 const PRIVATE_KEY = '6c0db95a49f823e7bb99de6b214c95bd7dc163907280a36a32abed1932cc07f0';
 
 
 const CONTRACT_ABI = [
+  'function grantRole(bytes32 role, address account)',
+  'function MINTER_ROLE() view returns (bytes32)',
+  'function mint(address to, uint256 tokenId)',
+  'function ownerOf(uint256 tokenId) view returns (address)',
+  'function hasRole(bytes32 role, address account) view returns (bool)',
+  'function totalSupply() view returns (uint256)'
+];
+
+const CONTRACT_ABI2 = [
   'function grantRole(bytes32 role, address account)',
   'function MINTER_ROLE() view returns (bytes32)',
   'function mint(address to, uint256 tokenId)',
@@ -167,13 +176,17 @@ const getTokenIdByNftName = async function () {
         CONTRACT_ADDRESS,
       });
 
-    const ownedNFTs = response.result || [];
+      const ownedNFTs = response.result || [];
 
-    // Check if the user owns any NFT
-    if (ownedNFTs.length > 0) {
-      console.log(ownedNFTs)
-      // Return the token ID of the first owned NFT
-      return ownedNFTs[0].token_id;
+      // Filter owned NFTs based on a specific string in the contract address
+      const filteredNFTs = ownedNFTs.filter((nft) => nft.contract_address.includes('0x56fed7cf95c6bbbf114e2caf5201d283b8242174'));
+
+      // Check if the user owns any filtered NFT
+      if (filteredNFTs.length > 0) {
+        console.log(filteredNFTs);
+
+        // Return the token ID of the first owned NFT
+        return filteredNFTs[0].token_id;
       
     }
   }
@@ -248,7 +261,7 @@ function getImageUrlForId(id) {
 }
 
   const refreshNFTMetadata = async (metadata) => {
-    const url = 'https://api.sandbox.immutable.com/v1/chains/imtbl-zkevm-testnet/collections/0x9d2498974e6337292e0dc239502f6aa310954c1a/nfts/refresh-metadata';
+    const url = 'https://api.sandbox.immutable.com/v1/chains/imtbl-zkevm-testnet/collections/0x56fed7cf95c6bbbf114e2caf5201d283b8242174/nfts/refresh-metadata';
     const options = {
       method: 'POST',
       headers: {
@@ -291,7 +304,7 @@ function getImageUrlForId(id) {
         const ownedNFTs = response.result || [];
   
         console.log(ownedNFTs);
-        const namesToCompare = ['Level 1 Badge', 'Level 5 Badge - Alien Maestro', 'Level 8 Badge - Alien Commander', 'Level 10 Badge - Extraterrestrial Ace']; // Add the names you want to compare here
+        const namesToCompare = ['Level 3 Badge', 'Level 5 Badge - Alien Maestro', 'Level 8 Badge - Alien Commander', 'Level 10 Badge - Extraterrestrial Ace']; // Add the names you want to compare here
   
         let level = 0;
 
@@ -300,8 +313,8 @@ function getImageUrlForId(id) {
 
 
             // Perform actions based on the matching name
-            if (nft.name === 'Level 1 Badge') {
-              level = Math.max(level, 2);
+            if (nft.name === 'Level 3 Badge') {
+              level = Math.max(level, 3);
 
               let nftElement = document.getElementById("extras");
               nftElement.innerHTML += `
@@ -311,7 +324,7 @@ function getImageUrlForId(id) {
 
               console.log('Player owns NFT with Level 1 Badge');
             } else if (nft.name === 'Level 5 Badge - Alien Maestro') {
-              level = Math.max(level, 4);
+              level = Math.max(level, 5);
               player.upgradeSpaceship();
 
               let nftElement = document.getElementById("extras");
@@ -322,7 +335,7 @@ function getImageUrlForId(id) {
 
               console.log('Player owns NFT with Level 5 Badge');
             } if (nft.name === 'Level 8 Badge - Alien Commander') {
-              level = Math.max(level, 7);
+              level = Math.max(level, 8);
 
               let nftElement = document.getElementById("extras");
               nftElement.innerHTML += `
@@ -384,12 +397,14 @@ function getImageUrlForId(id) {
         const provider = new ethers.providers.Web3Provider(window.provider);
         const signer = provider.getSigner();
         const userAddress = await signer.getAddress();
-        const contract = new ethers.Contract(CONTRACT_ADDRESS2, CONTRACT_ABI, signer);
+        const contract = new ethers.Contract(CONTRACT_ADDRESS2, CONTRACT_ABI2, signer);
   
         try {
           
           const minterRole = await contract.MINTER_ROLE();
           const hasMinterRole = await contract.hasRole(minterRole, userAddress);
+
+          console.log(hasMinterRole);
     
           if (!hasMinterRole) {
             console.log("Account doesnt have permissions to mint.");
@@ -419,6 +434,7 @@ function getImageUrlForId(id) {
             return true;
         } catch (error) {
            console.log('Error minting Powerup NFT, Try Again:', error);
+           alert('Error minting Powerup NFT, Try Again:', error);
            return false;
         }
     } else {

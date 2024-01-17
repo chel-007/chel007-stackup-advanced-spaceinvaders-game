@@ -1,37 +1,42 @@
 let levels = [
     {
-        numberOfAliens: 30,
+        numberOfAliens: 10,
         alienHealth: 1,
         // Add more properties for level one as needed
     },
     {
-        numberOfAliens: 32,
+        numberOfAliens: 15,
         alienHealth: 1,
         // Define properties for level two
     },
     {
-        numberOfAliens: 1,
+        numberOfAliens: 20,
         alienHealth: 1,
+        // Define properties for level two
+    },
+    {
+        numberOfAliens: 25,
+        alienHealth: 1,
+        // Define properties for level two
+    },
+    {
+        numberOfAliens: 30,
+        alienHealth: 2,
+        // Define properties for level two
+    },
+    {
+        numberOfAliens: 35,
+        alienHealth: 2,
         // Define properties for level two
     },
     {
         numberOfAliens: 40,
-        alienHealth: 1,
-        // Define properties for level two
-    },
-    {
-        numberOfAliens: 1,
         alienHealth: 2,
         // Define properties for level two
     },
     {
-        numberOfAliens: 45,
-        alienHealth: 2,
-        // Define properties for level two
-    },
-    {
-        numberOfAliens: 50,
-        alienHealth: 2,
+        numberOfAliens: 35,
+        alienHealth: 3,
         // Define properties for level two
     },
     {
@@ -40,12 +45,7 @@ let levels = [
         // Define properties for level two
     },
     {
-        numberOfAliens: 45,
-        alienHealth: 3,
-        // Define properties for level two
-    },
-    {
-        numberOfAliens: 50,
+        numberOfAliens: 40,
         alienHealth: 3,
         // Define properties for level two
     },
@@ -123,58 +123,58 @@ class Invaders {
 
     upgradePlayer(player) {
         const playerLevels = [
-          {
-            playerSpeed: 1,
-            bulletSpeed: 10,
-            maxBulletCount: 1,
-          },
-          {
-            playerSpeed: 2,
-            bulletSpeed: 10,
-            maxBulletCount: 2,
-          },
-          {
-            playerSpeed: 2,
-            bulletSpeed: 15,
-            maxBulletCount: 2,
-          },
-          {
-            playerSpeed: 2,
-            bulletSpeed: 18,
-            maxBulletCount: 3,
-          },
-          {
-            playerSpeed: 2,
-            bulletSpeed: 20,
-            maxBulletCount: 3,
-          },
-          {
-            playerSpeed: 3,
-            bulletSpeed: 23,
-            maxBulletCount: 4,
-          },
-          {
-            playerSpeed: 3,
-            bulletSpeed: 30,
-            maxBulletCount: 4,
-          },
-          {
-            playerSpeed: 3,
-            bulletSpeed: 26,
-            maxBulletCount: 5,
-          },
-          {
-            playerSpeed: 4,
-            bulletSpeed: 30,
-            maxBulletCount: 5,
-          },
-          {
-            playerSpeed: 4,
-            bulletSpeed: 35,
-            maxBulletCount: 4,
-          },
-          // Add properties for subsequent levels
-        ];
+            {
+              playerSpeed: 1,
+              bulletSpeed: 10,
+              maxBulletCount: 1,
+            },
+            {
+              playerSpeed: 2,
+              bulletSpeed: 10,
+              maxBulletCount: 2,
+            },
+            {
+              playerSpeed: 2,
+              bulletSpeed: 15,
+              maxBulletCount: 2,
+            },
+            {
+              playerSpeed: 2,
+              bulletSpeed: 18,
+              maxBulletCount: 3,
+            },
+            {
+              playerSpeed: 2,
+              bulletSpeed: 20,
+              maxBulletCount: 3,
+            },
+            {
+              playerSpeed: 3,
+              bulletSpeed: 20,
+              maxBulletCount: 4,
+            },
+            {
+              playerSpeed: 3,
+              bulletSpeed: 25,
+              maxBulletCount: 4,
+            },
+            {
+              playerSpeed: 3,
+              bulletSpeed: 26,
+              maxBulletCount: 5,
+            },
+            {
+              playerSpeed: 3,
+              bulletSpeed: 30,
+              maxBulletCount: 5,
+            },
+            {
+              playerSpeed: 4,
+              bulletSpeed: 30,
+              maxBulletCount: 4,
+            },
+            // Add properties for subsequent levels
+          ];
       
         if (this.rowsCount < playerLevels.length) {
           const { playerSpeed, bulletSpeed, maxBulletCount } = playerLevels[this.rowsCount];

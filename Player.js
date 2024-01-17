@@ -15,23 +15,23 @@ const playerLevels = [
     maxBulletCount: 2,
   },
   {
-    playerSpeed: 3,
+    playerSpeed: 2,
+    bulletSpeed: 18,
+    maxBulletCount: 3,
+  },
+  {
+    playerSpeed: 2,
     bulletSpeed: 20,
     maxBulletCount: 3,
   },
   {
     playerSpeed: 3,
     bulletSpeed: 20,
-    maxBulletCount: 3,
-  },
-  {
-    playerSpeed: 3,
-    bulletSpeed: 23,
     maxBulletCount: 4,
   },
   {
     playerSpeed: 3,
-    bulletSpeed: 30,
+    bulletSpeed: 25,
     maxBulletCount: 4,
   },
   {
@@ -40,13 +40,13 @@ const playerLevels = [
     maxBulletCount: 5,
   },
   {
-    playerSpeed: 4,
+    playerSpeed: 3,
     bulletSpeed: 30,
     maxBulletCount: 5,
   },
   {
     playerSpeed: 4,
-    bulletSpeed: 35,
+    bulletSpeed: 30,
     maxBulletCount: 4,
   },
   // Add properties for subsequent levels
@@ -99,7 +99,7 @@ class Player {
 
     showNft(tokenId) {
       if (!this.nft[tokenId]) {
-        this.nft[tokenId] = true;
+        this.nft[tokenId] = false;
         window.getData(tokenId);
       }
     }
@@ -236,7 +236,7 @@ class Player {
       // Load other relevant player data
     } else {
       // If no saved data exists, initialize the player with default values
-      this.coins = 500;
+      this.coins = 100;
       // Initialize other player data here if needed
     }
   }
