@@ -4,7 +4,6 @@ The Deployed Game Link is @: https://chel-advanced-spaceinvaders.netlify.app
 
 NB: To Play and test the Game successfully, make sure to **be on the full screen of your PC**, **allow pop-up notifications for the tab**, and **have some t-IMX in your logged in wallet**
 
-**Disclaimer:** My Deployed Game is still undergoing testing and I will be pushing additional updates before the Stackup Bounty Deadline
 <hr>
 
 ### chel007 X Stackup Space Invaders Game WriteUp
