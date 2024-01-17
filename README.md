@@ -6,7 +6,7 @@ NB: To Play and test the Game successfully, make sure to **be on the full screen
 
 ## GamePlay Guide
 
-[<img src="https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg" width="50%">](https://vimeo.com/903867901?share=copy "chel007 X Stackup Space Invaders: 55")
+[<img width="50%">](https://vimeo.com/903867901?share=copy "chel007 X Stackup Space Invaders: 55")
 
 <hr>
 
