@@ -6,7 +6,7 @@ NB: To Play and test the Game successfully, make sure to **be on the full screen
 
 ## GamePlay Guide
 
-[<img src="" width="50%">](https://vimeo.com/903867901?share=copy "chel007 X Stackup Space Invaders: 55")
+[<img src="https://cdn.hackernoon.com/images/4jLd9wAdOWQW3iTiKFVy3oWadmu1-2w83asp.jpeg" width="50%">](https://vimeo.com/903867901?share=copy "chel007 X Stackup Space Invaders: 55")
 
 **The gameplay guide video above will redirect to a Vimeo video on click.**
 
