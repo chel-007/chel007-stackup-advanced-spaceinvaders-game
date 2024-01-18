@@ -18,6 +18,10 @@ let isPowerups = true;
 let nftDataReceived = false;
 let cooldowns;
 let alienatorsImage;
+let gameStartSound;
+let gameOverSound;
+let levelCompleteSound;
+let soundPlayed = false;
 
 cooldowns = JSON.parse(localStorage.getItem('localCooldowns')) || {};
 
@@ -33,6 +37,9 @@ function preload() {
   shooterImage = loadImage('player.png');
   upgradedShooterImage = loadImage('playerv2.png');
   alienatorsImage = loadImage('playerv2.png');
+  gameStartSound = loadSound('jKRNoWqYw5Ww.128.mp3');
+  gameOverSound = loadSound('gamelose.mp3');
+  levelCompleteSound = loadSound('levelcomplete.mp3');
 }
 
 function setupButtons() { 
@@ -188,6 +195,59 @@ function resumeGame() {
   player.resetAfterResume();
 }
 
+
+function playGameStartSound() {
+  // Check if the sound is loaded before playing
+  if (gameStartSound.isPlaying()) {
+    return;
+  }
+  else if (gameStartSound.isLoaded()) {
+      // If the sound is not currently playing, start playing it
+      gameStartSound.play();
+    }
+  else {
+    console.error('Sound is not loaded yet.');
+  }
+}
+function pauseGameStartSound() {
+  // Check if the sound is loaded before playing
+  if (gameStartSound.isLoaded()) {
+    if (gameStartSound.isPlaying()) {
+      // If the sound is not currently playing, start playing it
+      gameStartSound.pause();
+    } 
+  }
+  else {
+    console.error('Sound is not loaded yet.');
+  }
+}
+
+function playlevelCompleteSound() {
+  if (levelCompleteSound.isLoaded() && !soundPlayed2) {
+    levelCompleteSound.play();
+    soundPlayed2 = true;  // Set the flag to true after playing
+    // Set an event listener to reset the flag when the sound ends
+    levelCompleteSound.onended(() => {
+      soundPlayed2 = false;
+    });
+  } else {
+    console.error('Sound is not loaded yet or has already been played.');
+  }
+}
+
+function playGameOverSound() {
+  if (gameOverSound.isLoaded() && !soundPlayed) {
+    gameOverSound.play();
+    soundPlayed = true;  // Set the flag to true after playing
+    // Set an event listener to reset the flag when the sound ends
+    gameOverSound.onended(() => {
+      soundPlayed = false;
+    });
+  } else {
+    console.error('Sound is not loaded yet or has already been played.');
+  }
+}
+
 function draw() {
   if (gameOver) {
     showGameOver();
@@ -223,6 +283,8 @@ function draw() {
     
     if (player.lives == 0) {
       gameOver = true;
+      pauseGameStartSound();
+      playGameOverSound();
     }
   } else {
     connectToStart();
@@ -621,6 +683,7 @@ function keyPressed() {
     player.moveLeft();
   } else if (keyCode === 32) {
     player.shoot();
+    playGameStartSound();
   }
 
   if (keyCode === UP_ARROW) {

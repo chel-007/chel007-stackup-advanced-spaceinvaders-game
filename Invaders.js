@@ -20,32 +20,32 @@ let levels = [
         // Define properties for level two
     },
     {
+        numberOfAliens: 25,
+        alienHealth: 2,
+        // Define properties for level two
+    },
+    {
         numberOfAliens: 30,
         alienHealth: 2,
         // Define properties for level two
     },
     {
-        numberOfAliens: 35,
+        numberOfAliens: 36,
         alienHealth: 2,
         // Define properties for level two
     },
     {
-        numberOfAliens: 40,
-        alienHealth: 2,
-        // Define properties for level two
-    },
-    {
-        numberOfAliens: 35,
+        numberOfAliens: 20,
         alienHealth: 3,
         // Define properties for level two
     },
     {
-        numberOfAliens: 40,
+        numberOfAliens: 25,
         alienHealth: 3,
         // Define properties for level two
     },
     {
-        numberOfAliens: 40,
+        numberOfAliens: 30,
         alienHealth: 3,
         // Define properties for level two
     },
@@ -151,7 +151,7 @@ class Invaders {
             {
               playerSpeed: 3,
               bulletSpeed: 20,
-              maxBulletCount: 4,
+              maxBulletCount: 3,
             },
             {
               playerSpeed: 3,
@@ -165,7 +165,7 @@ class Invaders {
             },
             {
               playerSpeed: 3,
-              bulletSpeed: 30,
+              bulletSpeed: 28,
               maxBulletCount: 5,
             },
             {

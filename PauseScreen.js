@@ -12,7 +12,7 @@ class PauseScreen {
         fill(255);
         rect(0, 0, width, height);
 
-        if (this.level.rowsCount === 11) {
+        if (this.level.rowsCount === 10) {
             fill(0);
             textSize(32);
             textAlign(CENTER, CENTER);

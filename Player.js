@@ -27,7 +27,7 @@ const playerLevels = [
   {
     playerSpeed: 3,
     bulletSpeed: 20,
-    maxBulletCount: 4,
+    maxBulletCount: 3,
   },
   {
     playerSpeed: 3,
@@ -41,7 +41,7 @@ const playerLevels = [
   },
   {
     playerSpeed: 3,
-    bulletSpeed: 30,
+    bulletSpeed: 28,
     maxBulletCount: 5,
   },
   {

@@ -319,7 +319,7 @@ function getImageUrlForId(id) {
               let nftElement = document.getElementById("extras");
               nftElement.innerHTML += `
                 <div class="alert alert-success"> 
-                  Welcome Back Alien Tropper! You've been beeped back to Level 3.
+                  Welcome Back Alien Tropper! You've been beeped back to Level 4.
                 </div>`;
 
               console.log('Player owns NFT with Level 1 Badge');
@@ -330,12 +330,12 @@ function getImageUrlForId(id) {
               let nftElement = document.getElementById("extras");
               nftElement.innerHTML += `
                 <div class="alert alert-success"> 
-                  Welcome Back Alien Maestro! You've been beeped back to Level 5.
+                  Welcome Back Alien Maestro! You've been beeped back to Level 6.
                 </div>`;
 
               console.log('Player owns NFT with Level 5 Badge');
             } if (nft.name === 'Level 8 Badge - Alien Commander') {
-              level = Math.max(level, 8);
+              level = Math.max(level, 7);
 
               let nftElement = document.getElementById("extras");
               nftElement.innerHTML += `
