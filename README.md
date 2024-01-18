@@ -163,8 +163,33 @@ https://explorer.testnet.immutable.com/address/0x646dc499a9c56c755ebc4e9b0f65808
 ![powerup collection chel007](https://magenta-golden-kangaroo-945.mypinata.cloud/ipfs/QmcMeGhGVJ6tCfVyyee8MWnFjCicbbpteasnHAJqCc7fqX)
 
 #### **Miscellaneous and Extras**
-So some other features that could clash because of the changes in my game was basically the game start logic, so Instead of just starting the game as the passport client updates the userProfile, i added an extra check for the Nft Data retrieved by ListAllNfts By Address.
+I made a couple of changes to my game that could potentially lead to clashes otherwise. Specifically, I modified the game start logic. Instead of initiating the game solely when the passport client updates the userProfile, I added an extra check for the NFT Data retrieved by the `ListAllNftsByAddress` function.
 
-So the Game checks if both functions return success with values before starting
+Now, before starting the game, it checks if both functions return success with values.
 
-And Secondly, a new PauseScreen.js Class is created that logs the value of next Level, Score, Coins and both the resume & buyPoweup Button when the game is paused to make it more Intuitive to View the Player stats and Interact with the Powerups
+Additionally, I introduced a new `PauseScreen.js` class. This class logs the values of the next level, score, coins, and both the resume and buyPowerup buttons when the game is paused. This enhancement makes it more intuitive for players to view their stats and interact with powerups.
+
+
+## Game Ending Logic:
+
+As the game progresses up to Level 10, I've added a Game Ending Logic to handle the successful completion of Level 10. The relevant code is primarily written in my `sketch.js` file, accessing classes like Player and Invaders.
+
+When the player reaches Level 10, the `levelComplete()` function is triggered. At this point, the resume and activate Powerup Buttons become inactive, and instead of resuming the game or showing the powerups display, they log a simple message.
+
+In the `levelComplete` function, the game is paused, and a Congratulations UI is displayed. This UI includes a Restart Button that restarts the game when clicked. The restart process involves:
+- Setting the Level to 0.
+- Calling the `setup` function.
+- Creating new resume and activate Powerup Buttons in the `setup` function.
+- Deleting the previous buttons to avoid errors.
+- Resetting the Player Game state, refreshing the Coin and Powerups Inventory.
+- Setting `player.gamePaused` to `false` to resume the game.
+
+The key functions powering these logic are:
+- `restartGame()`
+- `showCongratulationsUI()`
+- `levelComplete()`
+
+This outlines the implementation of the Game Ending Logic in a simple manner. 
+
+
+#### Thanks for reading my writeup on the process of upgrading the Stackup Space Invaders game to an advanced version.
